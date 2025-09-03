@@ -3,12 +3,12 @@
 
 | Módulo       | Enlace                             |
 |--------------|---------------------------------|
-- Modulo 01 - [acceder](modulo_01/apuntes_001.md)
-- Modulo 02 - [acceder](modulo_02/apuntes_002.md)
-- Modulo 03 - [acceder](modulo_03/apuntes_003.md)
-- Modulo 04 - [acceder](modulo_04/apuntes_004.md)
-- Modulo 05 - [acceder](modulo_05/apuntes_005.md)
-- Modulo 06 - [acceder](modulo_06/apuntes_006.md)
+- Modulo 01 - [acceder](modulo_01/apuntes_m1.md)
+- Modulo 02 - [acceder](modulo_02/apuntes_m2.md)
+- Modulo 03 - [acceder](modulo_03/apuntes_m3.md)
+- Modulo 04 - [acceder](modulo_04/apuntes_m4.md)
+- Modulo 05 - [acceder](modulo_05/apuntes_m5.md)
+- Modulo 06 - [acceder](modulo_06/apuntes_m6.md)
 
 ----
 # Enlaces Rápidos a Material:
