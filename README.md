@@ -5,13 +5,13 @@ Apuntes y material del curso de Visionado por Ordenador / Computer visión de la
 
 
 | Módulo      | Enlace                                    | De que va el asunto?      |
-|-------------|-------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| Modulo 01   | [apuntes_m1.md](modulo_01/apuntes_m1.md)  | Primeros Pasos. Qué es la visión por ordenador y sus principales usos                                  |    
-| Modulo 02   | [apuntes_m2.md](modulo_02/apuntes_m2.md)  | El aprendizaje automático                                                                              |
-| Modulo 03   | [apuntes_m3.md](modulo_03/apuntes_m3.md)  | Principales funciones del visionado por ordenador                                                      |
-| Modulo 04   | [apuntes_m4.md](modulo_04/apuntes_m4.md)  | Sistemas de visión 3D artificial                                                                       |
-| Modulo 05   | [apuntes_m5.md](modulo_05/apuntes_m5.md)  | Aplicaciones del visionado por ordenador a la protección del medio ambiente y la economía circular     |
-| Modulo 06   | [apuntes_m6.md](modulo_06/apuntes_m6.md)  | Ventajas y Proyecto Libre                                                                              |
+|-------------|-------------------------------------------|---------------------------------------------------------------------------|
+| Modulo 01   | [apuntes_m1.md](modulo_01/apuntes_m1.md)  | Primeros Pasos. Qué es Computer Vison, principales usos                   |    
+| Modulo 02   | [apuntes_m2.md](modulo_02/apuntes_m2.md)  | El aprendizaje automático                                                 |
+| Modulo 03   | [apuntes_m3.md](modulo_03/apuntes_m3.md)  | Principales funciones del visionado por ordenador                         |
+| Modulo 04   | [apuntes_m4.md](modulo_04/apuntes_m4.md)  | Sistemas de visión 3D artificial                                          |
+| Modulo 05   | [apuntes_m5.md](modulo_05/apuntes_m5.md)  | Aplicaciones de visionado: medio ambiente y la economía circular          |
+| Modulo 06   | [apuntes_m6.md](modulo_06/apuntes_m6.md)  | Ventajas y Proyecto Libre                                                 |
 
 ----
 # Enlaces Rápidos a Material:
