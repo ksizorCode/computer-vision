@@ -3,7 +3,7 @@
 # 1. No Code / Low Code (fáciles de usar, sin programar)
 | Herramienta                                                          | Tipo                                  | Características principales                         | Ideal para                    |
 | -------------------------------------------------------------------- | ------------------------------------- | --------------------------------------------------- | ----------------------------- |
-| [Google Teachable Machine](https://teachablemachine.withgoogle.com/) | Clasificación de imágenes/audio/poses | Entrena modelos con tu webcam y dataset en minutos  | Educación, prototipado rápido |
+| [Teachable Machine](https://teachablemachine.withgoogle.com/) | Clasificación de imágenes/audio/poses | Entrena modelos con tu webcam y dataset en minutos  | Educación, prototipado rápido |
 | [Lobe](https://www.lobe.ai/) (Microsoft)                             | No-code ML                            | Interfaz gráfica para entrenar y exportar modelos   | Profesores, makers            |
 | [Roboflow](https://roboflow.com/)                                    | Datasets + Computer Vision            | Anotación, entrenamiento y despliegue en la nube    | Detección de objetos, OCR     |
 | [MakeML](https://makeml.app/)                                        | No-code iOS                           | Detección de objetos y segmentación                 | Apps móviles                  |
