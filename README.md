@@ -3,15 +3,15 @@
 
 | Módulo       | Enlace                             |
 |--------------|---------------------------------|
-- Modulo 01 - [acceder](modulo-01/apuntes_001.md)
-- Modulo 02 - [acceder](modulo-02/apuntes_002.md)
-- Modulo 03 - [acceder](modulo-03/apuntes_003.md)
-- Modulo 04 - [acceder](modulo-04/apuntes_004.md)
-- Modulo 05 - [acceder](modulo-05/apuntes_005.md)
-- Modulo 06 - [acceder](modulo-06/apuntes_006.md)
+- Modulo 01 - [acceder](modulo_01/apuntes_001.md)
+- Modulo 02 - [acceder](modulo_02/apuntes_002.md)
+- Modulo 03 - [acceder](modulo_03/apuntes_003.md)
+- Modulo 04 - [acceder](modulo_04/apuntes_004.md)
+- Modulo 05 - [acceder](modulo_05/apuntes_005.md)
+- Modulo 06 - [acceder](modulo_06/apuntes_006.md)
 
-
-
+----
+# Enlaces Rápidos a Material:
 ## Cosillas 3D:
 
 Interactividad 3D 
