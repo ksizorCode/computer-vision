@@ -1,7 +1,3 @@
-convierte y amplia estos apuntes en formato tabla:
-
-# Herramientas de Visionado por ordenadore Inteligencia artificial
-## Computer Vision / Visionado por ordenador
 ## Ingeligencia Artificial Generativa
 | Herramienta                                                                   | Ámbito        | Características principales                                   | Ventajas                       | Limitaciones                              | Ideal para                                |
 | ----------------------------------------------------------------------------- | ------------- | ------------------------------------------------------------- | ------------------------------ | ----------------------------------------- | ----------------------------------------- |
