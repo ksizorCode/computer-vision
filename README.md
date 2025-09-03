@@ -13,8 +13,8 @@ Apuntes y material del curso de Visionado por Ordenador / Computer visión de la
 | 🐝 Modulo 05   | [apuntes_m5.md](modulo_05/apuntes_m5.md)  | Aplicaciones de visionado: medio ambiente y la economía circular                |
 | 🚀 Modulo 06   | [apuntes_m6.md](modulo_06/apuntes_m6.md)  | Ventajas y Proyecto Libre                                                       |
 
-[Herramientas de Computer Vision](cv_herramientas.md)
-[Herramientas de IA Generativa](ai_generativa.md)
+- [Herramientas de Computer Vision](cv_herramientas.md)
+- [Herramientas de IA Generativa](ai_generativa.md)
 ----
 # Enlaces Rápidos a Material:
 ## Cosillas 3D:
