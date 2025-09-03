@@ -1,0 +1,192 @@
+/* --- Variables de Color y Estilos Globales --- */
+:root {
+    --primary-color: #00ffff; /* Cian para un look tecnológico */
+    --background-color: #050a19;
+    --dark-grey: #1a1f2e;
+    --light-grey: #a0a8b2;
+    --font-family: 'Rajdhani', sans-serif;
+    --glow-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color), 0 0 15px var(--primary-color);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: white;
+    overflow: hidden; /* Evita el scroll */
+}
+
+/* --- Indicador de Carga --- */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    transition: opacity 0.5s ease;
+}
+
+body.loading #loader {
+    opacity: 1;
+}
+
+body:not(.loading) #loader {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#loader p {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: var(--primary-color);
+    letter-spacing: 1px;
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid var(--dark-grey);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* --- Contenedor Principal de la App --- */
+#app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    padding: 20px;
+}
+
+/* --- Encabezado --- */
+.main-header {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.main-header h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-shadow: var(--glow-shadow);
+    letter-spacing: 4px;
+}
+
+.main-header p {
+    font-size: 1.2em;
+    color: var(--light-grey);
+    letter-spacing: 2px;
+}
+
+/* --- Contenedor del Vídeo --- */
+main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 800px; /* Ancho máximo para el vídeo */
+}
+
+#video-wrapper {
+    position: relative;
+    width: 100%;
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    box-shadow: var(--glow-shadow);
+    background: #000;
+    overflow: hidden; /* Asegura que el vídeo no se salga de los bordes redondeados */
+}
+
+#video {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* --- Estilos para los cuadros de detección de Roboflow --- */
+.bounding-box {
+    position: absolute;
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.bounding-box-label {
+    position: absolute;
+    top: -22px;
+    left: -2px;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+/* --- Pie de Página y Contador de FPS --- */
+footer {
+    width: 100%;
+    padding-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#fps-counter {
+    background-color: var(--dark-grey);
+    border: 1px solid var(--primary-color);
+    padding: 5px 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    font-size: 1.1em;
+}
+
+#fps-counter span {
+    color: var(--light-grey);
+    margin-right: 8px;
+}
+
+#fps {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* --- Media Queries para Responsividad --- */
+@media (max-width: 640px) {
+    #app-container {
+        padding: 10px;
+    }
+    .main-header h1 {
+        font-size: 1.8em;
+    }
+    .main-header p {
+        font-size: 1em;
+    }
+    footer {
+        justify-content: center;
+    }
+}

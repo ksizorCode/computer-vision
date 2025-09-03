@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dicampus | Detector de Fachadas</title>
+    
+    <!-- Metatag para un diseño responsive y moderno -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <!-- Google Fonts para una tipografía moderna -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Scripts necesarios para la funcionalidad -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/async/3.2.0/async.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/inferencejs"></script>
+
+    <!-- Enlace a la nueva hoja de estilos -->
+    <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+
+    <!-- Indicador de carga que se muestra al inicio -->
+    <div id="loader">
+        <div class="spinner"></div>
+        <p>Iniciando sistema de detección...</p>
+    </div>
+
+    <div id="app-container">
+        <!-- Encabezado de la aplicación -->
+        <header class="main-header">
+            <h1>DICAMPUS</h1>
+            <p>Detector de Elementos de Fachada</p>
+        </header>
+
+        <!-- Contenedor principal para el vídeo y las detecciones -->
+        <main>
+            <div id="video-wrapper">
+                <!-- El vídeo de la cámara se mostrará aquí -->
+                <video id="video" autoplay muted playsinline></video>
+                <!-- Los cuadros de detección se superpondrán aquí mediante JS -->
+            </div>
+        </main>
+
+        <!-- Pie de página para información adicional como los FPS -->
+        <footer>
+            <div id="fps-counter">
+                <span>FPS:</span>
+                <div id="fps">--</div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Tu script principal -->
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>
