@@ -4,6 +4,7 @@ convierte y amplia estos apuntes en formato tabla:
 ## Computer Vision / Visionado por ordenador
 ## Generación de Imágenes
 |Herramienta                                             |ámbito                      |característica                                                   |
+|--------------------------------------------------------|----------------------------|-----------------------------------------------------------------|
 |[KREA](https://krea.ai)                                 | imagen, video, 3d          |realtime genration, video, 3d, limpisink, motioncapture          |
 |[Whisk](https://labs.google/fx/es-419/tools/whisk)      |  imagen, video             |gran calidad y detalle, ideal para arquitectura                  |
 |[Lumalabs](https://lumalabs.ai/)                        |  video                     |video a partir de referencia                                     |
