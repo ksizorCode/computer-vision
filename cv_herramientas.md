@@ -34,11 +34,11 @@
 | ------------------------------------------------------------- | ----------------------- | ---------------------------------------------------------------- |
 | [Teachable Machine](https://teachablemachine.withgoogle.com/) | Entrenamiento fácil     | Enseña a tu navegador a reconocer poses, imágenes o sonidos      |
 | [AutoDraw](https://www.autodraw.com/)                         | Dibujo asistido         | Reconoce tus garabatos y los convierte en dibujos vectoriales    |
-| [Lines](https://lines.chromeexperiments.com/)                 | Dibujo interactivo      | Convierte trazos en animaciones con IA                           |
+| [LandLines](https://lines.chromeexperiments.com/)             | Dibujo interactivo      | Convierte trazos en animaciones con IA                           |
 | DeepDream                                                     | Experimento Google      | Convierte imágenes en visiones psicodélicas con redes neuronales |
 | Neural Style Transfer                                         | Transferencia de estilo | Convierte fotos en cuadros (ej. Van Gogh style)                  |
-| Quick, Draw!                                                  | Juego Google            | Reconoce tus dibujos en tiempo real                              |
-| Semantris                                                     | Juego Google            | IA que asocia palabras y semántica                               |
+| [Quick, Draw!](https://quickdraw.withgoogle.com/)             | Juego Google            | Reconoce tus dibujos en tiempo real                              |
+| [Semantris](https://research.google.com/semantris/)           | Juego Google            | IA que asocia palabras y semántica                               |
 👉 Si te gustan estos experimentos puedes encontrar más de todo tipo (no solo computer vision) en: experiments.withgoogle.com
 
 # 5. APIs y servicios en la nube
