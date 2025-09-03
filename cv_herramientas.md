@@ -28,6 +28,10 @@
 | Detectron2 (Meta)                            | Detección avanzada              | ⭐⭐⭐⭐                 | Segmentación, detección de instancias |
 | YOLOv8 (Ultralytics)                         | Detección en tiempo real        | ⭐⭐⭐                  | Detección rápida en Colab             |
 | HuggingFace Transformers (visión)            | Modelos pre-entrenados          | ⭐⭐⭐⭐                 | CLIP, visión multimodal               |
+| Matplotlib                                   |      |
+Yolo
+Numpy
+
 
 # 4. Herramientas experimentales y creativas
 | Herramienta                                                   | Tipo                    | Qué hace                                                         |
@@ -50,3 +54,6 @@
 | [Azure Computer Vision](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/) | OCR, descripción de imágenes                | Integración con MS stack        | Similar a GCP/AWS             |
 
 
+
+
+https://experiments.withgoogle.com/move-mirror
