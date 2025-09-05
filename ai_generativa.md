@@ -30,3 +30,9 @@
 🫦 lipsink / sincronización labial
 🕸️ workflow con nodos y flujos de trabajo
 
+
+## Otras a añadir:
+
+- https://www.artbreeder.com/
+- https://runwayml.com/
+
