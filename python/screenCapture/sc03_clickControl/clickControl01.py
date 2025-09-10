@@ -38,28 +38,30 @@ def detectar_y_click(plantillas):
         res = cv2.matchTemplate(screenshot, plantilla, cv2.TM_CCOEFF_NORMED)
         min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
 
-        print(f"[INFO] {nombre}: max_val = {max_val:.2f}")  # mostrar confianza encontrada
+        print(f"🔍 [INFO] {nombre}: confianza máxima = {max_val:.2f}")
 
         # si la coincidencia es mayor que la confianza mínima, hacemos click
         if max_val >= CONFIDENCE_THRESHOLD:
             centro_x = max_loc[0] + w // 2
             centro_y = max_loc[1] + h // 2
             pyautogui.click(centro_x, centro_y)
-            print(f"[CLICK] Haciendo click en {nombre} en ({centro_x}, {centro_y})")
+            print(f"✅ [CLICK] Haciendo click en {nombre} en ({centro_x}, {centro_y})")
+            break  # SALIR del bucle interno de plantillas tras hacer click para no serguir revisando
+
 
 # ---------------------- PROGRAMA PRINCIPAL ----------------------
 if __name__ == "__main__":
     plantillas = cargar_plantillas(TEMPLATE_FOLDER)
-    print(f"[INFO] Se cargaron {len(plantillas)} plantillas.")
+    print(f"📂 [INFO] Se cargaron {len(plantillas)} plantillas.")
 
     for i in range(ITERACIONES):
-        print(f"\n[ITERACION {i+1}/{ITERACIONES}] Detectando y haciendo click...")
+        print(f"\n⏱ [ITERACIÓN {i+1}/{ITERACIONES}] Detectando y haciendo click...")
         detectar_y_click(plantillas)
         
         # hacer scroll tras la iteración
         pyautogui.scroll(SCROLL_PIXELS)
-        print(f"[SCROLL] Desplazando {abs(SCROLL_PIXELS)} píxeles hacia abajo.")
+        print(f"⬇️ [SCROLL] Desplazando {abs(SCROLL_PIXELS)} píxeles hacia abajo.")
         
         time.sleep(DELAY)
 
-    print("\n[INFO] Proceso completado.")
+    print("\n🎉 [INFO] Proceso completado.")
