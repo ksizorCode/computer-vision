@@ -7,6 +7,8 @@ import numpy as np
 # Cargar diccionario ArUco
 aruco_dict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_6X6_250)
 parameters = cv2.aruco.DetectorParameters()
+detector = cv2.aruco.ArucoDetector(aruco_dict, parameters)
+
 
 # Inicializar cámara
 cap = cv2.VideoCapture(0)
@@ -20,7 +22,7 @@ while True:
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     
     # Detectar marcadores
-    corners, ids, _ = cv2.aruco.detectMarkers(gray, aruco_dict, parameters=parameters)
+    corners, ids, _ = detector.detectMarkers(gray)  # Usar el detector
     
     # Dibujar marcadores detectados
     if ids is not None:
