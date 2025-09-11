@@ -1,0 +1,66 @@
+newmtl Lagoon Glow00000
+Kd 0.949 0.075 0.075
+d 1.000
+newmtl Lagoon Glow 0
+Kd 0.949 0.075 0.075
+d 1.000
+newmtl Lagoon Glow 1
+Kd 0.949 0.075 0.075
+d 1.000
+newmtl Lagoon Glow 2
+Kd 0.949 0.075 0.075
+d 1.000
+newmtl Lagoon Glow 3
+Kd 0.949 0.075 0.075
+d 1.000
+newmtl Lagoon Glow 4
+Kd 0.949 0.075 0.075
+d 1.000
+newmtl Samba00000
+Kd 0.780 0.071 0.106
+d 1.000
+newmtl Samba 0
+Kd 0.780 0.071 0.106
+d 1.000
+newmtl Samba 1
+Kd 0.780 0.071 0.106
+d 1.000
+newmtl Samba 2
+Kd 0.780 0.071 0.106
+d 1.000
+newmtl Samba 3
+Kd 0.780 0.071 0.106
+d 1.000
+newmtl Samba 4
+Kd 0.780 0.071 0.106
+d 1.000
+newmtl Spring
+Kd 1.000 0.000 0.502
+d 1.000
+newmtl Clear View0
+Kd 1.000 0.749 0.000
+d 1.000
+newmtl Clear View 0
+Kd 1.000 0.749 0.000
+d 1.000
+newmtl Niagara0
+Kd 0.980 0.020 0.020
+d 1.000
+newmtl Beluga0
+Kd 0.937 0.937 0.937
+d 1.000
+newmtl Beluga 10
+Kd 0.000 0.000 0.000
+d 1.000
+newmtl Niagara 0
+Kd 0.980 0.020 0.020
+d 1.000
+newmtl Beluga 0
+Kd 0.937 0.937 0.937
+d 1.000
+newmtl Beluga 11
+Kd 0.000 0.000 0.000
+d 1.000
+newmtl Lagoon Glow 5
+Kd 0.949 0.075 0.075
+d 1.000

@@ -1,3 +1,7 @@
+# VERSION BÁSICA
+
+# Generar y guardar un marcador ArUco con ID=42 usando OpenCV en la raiz del proyecto github
+
 import cv2
 import numpy as np
 

@@ -1,3 +1,6 @@
+# Detectar y dibujar sobre marcador ArUco el ID de marcador
+# Requiere una cámara conectada al ordenador
+
 import cv2
 import numpy as np
 

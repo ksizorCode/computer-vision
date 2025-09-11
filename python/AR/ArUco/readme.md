@@ -1,13 +1,38 @@
 # Marcadores ArUco
 
-## ¿Qué son los Marcadores ArUco?
+## ¿Qué significa ArUco?
+
+**AR** (Realidad Aumentada) + **UCO** (Universidad de Córdoba)
+
+es decir: **"Augmented Reality University of Córdoba"** (Realidad Aumentada Universidad de Córdoba).
+
+## Historia
+
+Esta herramienta española que se volvió estándar mundial para marcadores de realidad aumentada.
+
+- Fue desarrollado por el **AVA Group** (Augmented Virtual reality group of Andalusia) en la **Universidad de Córdoba**, España
+- Creado por **Rafael Muñoz-Salinas** y su equipo
+- Es una biblioteca de código abierto para detección de marcadores fiduciales
+
+
+## ¿Qué son los marcadores ArUco?
 
 Los **marcadores ArUco** son patrones visuales cuadrados en blanco y negro que funcionan como códigos QR especializados para **Realidad Aumentada** y **visión por computadora**. Fueron desarrollados por la Universidad de Córdoba (España) y están integrados en OpenCV.
 
+Es decir: **códigos cuadrados en blanco y negro** similares a códigos QR, pero optimizados para:
+
+- **Realidad Aumentada** - Posicionamiento de objetos 3D
+- **Visión por computador** - Calibración de cámaras
+- **Robótica** - Navegación y localización
+- **Tracking** - Seguimiento de objetos en tiempo real
+
 ### Características principales:
-- **Detección rápida** y robusta en tiempo real
-- **Cálculo de pose** (posición y orientación) en 3D
+- **Detección rápida** - Procesamiento en tiempo real
+- **Estimación de pose** - Calcula posición y orientación 3D
+- **Robustez** - Funciona con diferentes ángulos e iluminación
 - **Resistentes** a rotaciones, escalado y cambios de perspectiva
+- **Identificación única** - Cada marcador tiene un ID específico
+
 - **Código abierto** y gratuitos
 - **Fácil implementación** con Python/OpenCV
 
