@@ -14,6 +14,9 @@ print(f"OpenCV version: {cv2.__version__}")
 # Cargar diccionario ArUco
 aruco_dict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_6X6_250)
 parameters = cv2.aruco.DetectorParameters()
+detector = cv2.aruco.ArucoDetector(aruco_dict, parameters)  #Nueva forma en OpenCV 4.7.0
+
+
 
 # Inicializar cámara
 cap = cv2.VideoCapture(0)
@@ -27,7 +30,7 @@ while True:
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         
     # Detectar marcadores
-    corners, ids, _ = cv2.aruco.detectMarkers(gray, aruco_dict, parameters=parameters)
+    corners, ids, _ = detector.detectMarkers(gray)  # Cambio aquí OpenCV 4.7.0
         
     # Dibujar marcadores detectados
     if ids is not None:
