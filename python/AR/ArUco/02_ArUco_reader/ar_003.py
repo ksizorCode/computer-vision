@@ -5,6 +5,7 @@ import os
 # Configuración básica
 aruco_dict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_6X6_250)
 parameters = cv2.aruco.DetectorParameters()
+detector = cv2.aruco.ArucoDetector(aruco_dict, parameters)
 
 # Cargar imagen
 script_dir = os.path.dirname(__file__)
@@ -28,16 +29,37 @@ while True:
         break
     
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    corners, ids, _ = cv2.aruco.detectMarkers(gray, aruco_dict, parameters=parameters)
+    corners, ids, _ = detector.detectMarkers(gray)
     
-    if ids is not None:
-        # Solo dibujar marcadores detectados (sin 3D)
+    if ids is not None and len(ids) > 0:
+        # Dibujar marcadores detectados
         cv2.aruco.drawDetectedMarkers(frame, corners, ids)
         
-        # Opcional: añadir estimación de pose simple
-        rvecs, tvecs, _ = cv2.aruco.estimatePoseSingleMarkers(corners, marker_size, camera_matrix, dist_coeffs)
-        for rvec, tvec in zip(rvecs, tvecs):
-            cv2.drawFrameAxes(frame, camera_matrix, dist_coeffs, rvec, tvec, 0.03)
+        try:
+            # Estimación de pose para cada marcador individualmente
+            for i, corner in enumerate(corners):
+                # Usar solvePnP en lugar de estimatePoseSingleMarkers
+                object_points = np.array([
+                    [-marker_size/2,  marker_size/2, 0],
+                    [ marker_size/2,  marker_size/2, 0],
+                    [ marker_size/2, -marker_size/2, 0],
+                    [-marker_size/2, -marker_size/2, 0]
+                ], dtype=np.float32)
+                
+                success, rvec, tvec = cv2.solvePnP(
+                    object_points, 
+                    corner.reshape(-1, 2), 
+                    camera_matrix, 
+                    dist_coeffs
+                )
+                
+                if success:
+                    cv2.drawFrameAxes(frame, camera_matrix, dist_coeffs, rvec, tvec, 0.03)
+                    
+        except Exception as e:
+            print(f"Error en estimación de pose: {e}")
+            # Solo dibujar marcadores sin pose
+            pass
     
     cv2.imshow('AR Simple', frame)
     if cv2.waitKey(1) & 0xFF == ord('q'):

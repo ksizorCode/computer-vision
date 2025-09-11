@@ -88,9 +88,11 @@ def main():
     print("Cámara abierta correctamente")
     print("Controles:")
     print("- Presiona 'q' para salir")
+    print("- Presiona 's' para modo simple (sin AR)")
     print("- Muestra un marcador ArUco a la cámara")
     
     frame_count = 0
+    simple_mode = False
     
     while True:
         ret, frame = cap.read()
@@ -101,98 +103,142 @@ def main():
         frame_count += 1
         
         # Detectar marcadores ArUco
-        if use_new_api:
-            corners, ids, rejected = detector.detectMarkers(frame)
-        else:
-            corners, ids, rejected = cv2.aruco.detectMarkers(frame, aruco_dict, parameters=parameters)
+        try:
+            if use_new_api:
+                corners, ids, rejected = detector.detectMarkers(frame)
+            else:
+                corners, ids, rejected = cv2.aruco.detectMarkers(frame, aruco_dict, parameters=parameters)
+        except Exception as e:
+            print(f"Error detectando marcadores: {e}")
+            corners, ids, rejected = [], None, []
         
         # Mostrar información básica
         info_text = f"Frame: {frame_count} | ArUcos: {len(ids) if ids is not None else 0}"
+        if simple_mode:
+            info_text += " | MODO SIMPLE"
         cv2.putText(frame, info_text, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
         
         if ids is not None and len(ids) > 0:
             print(f"¡ArUco detectado! IDs: {ids.flatten()}")
             
             # Dibujar los marcadores detectados
-            cv2.aruco.drawDetectedMarkers(frame, corners, ids)
-            
-            # Estimar pose para cada marcador
             try:
-                rvecs, tvecs, _ = cv2.aruco.estimatePoseSingleMarkers(
-                    corners, marker_size, camera_matrix, dist_coeffs)
-                
-                for i in range(len(ids)):
-                    # Dibujar ejes del marcador
-                    try:
-                        cv2.drawFrameAxes(frame, camera_matrix, dist_coeffs, 
-                                        rvecs[i], tvecs[i], marker_size)
-                    except AttributeError:
-                        # Para versiones más antiguas
-                        cv2.aruco.drawAxis(frame, camera_matrix, dist_coeffs, 
-                                         rvecs[i], tvecs[i], marker_size)
-                    
-                    # Crear puntos 3D para la imagen perpendicular
-                    img_height, img_width = ar_image.shape[:2]
-                    
-                    # Escalar la imagen al tamaño del marcador
-                    scale_factor = marker_size / max(img_width, img_height) * 2
-                    scaled_width = img_width * scale_factor
-                    scaled_height = img_height * scale_factor
-                    
-                    # Puntos 3D perpendiculares al marcador (en el plano YZ)
-                    object_points_3d = np.array([
-                        [0, -scaled_width/2, scaled_height/2],    
-                        [0, scaled_width/2, scaled_height/2],     
-                        [0, scaled_width/2, -scaled_height/2],    
-                        [0, -scaled_width/2, -scaled_height/2]    
-                    ], dtype=np.float32)
-                    
-                    # Proyectar puntos 3D a 2D
-                    img_points_2d, _ = cv2.projectPoints(
-                        object_points_3d, rvecs[i], tvecs[i], 
-                        camera_matrix, dist_coeffs)
-                    
-                    # Puntos fuente de la imagen
-                    src_points = np.array([
-                        [0, 0],
-                        [img_width, 0],
-                        [img_width, img_height],
-                        [0, img_height]
-                    ], dtype=np.float32)
-                    
-                    dst_points = img_points_2d.reshape(-1, 2).astype(np.float32)
-                    
-                    # Verificar que los puntos sean válidos
-                    if np.any(np.isnan(dst_points)) or np.any(np.isinf(dst_points)):
-                        continue
-                    
-                    try:
-                        # Calcular matriz de transformación
-                        matrix = cv2.getPerspectiveTransform(src_points, dst_points)
-                        
-                        # Aplicar transformación
-                        warped_img = cv2.warpPerspective(
-                            ar_image, matrix, (frame.shape[1], frame.shape[0]))
-                        
-                        # Crear máscara
-                        mask = np.zeros((frame.shape[0], frame.shape[1]), dtype=np.uint8)
-                        cv2.fillPoly(mask, [dst_points.astype(np.int32)], 255)
-                        
-                        # Combinar imágenes
-                        mask_inv = cv2.bitwise_not(mask)
-                        frame_bg = cv2.bitwise_and(frame, frame, mask=mask_inv)
-                        warped_img_fg = cv2.bitwise_and(warped_img, warped_img, mask=mask)
-                        frame = cv2.add(frame_bg, warped_img_fg)
-                        
-                    except Exception as e:
-                        print(f"Error en transformación: {e}")
-                        continue
-                        
+                cv2.aruco.drawDetectedMarkers(frame, corners, ids)
             except Exception as e:
-                print(f"Error estimando pose: {e}")
+                print(f"Error dibujando marcadores: {e}")
+            
+            # Solo hacer AR si no está en modo simple
+            if not simple_mode:
+                # Estimar pose para cada marcador
+                try:
+                    # Verificar que estimatePoseSingleMarkers existe
+                    if hasattr(cv2.aruco, 'estimatePoseSingleMarkers'):
+                        rvecs, tvecs, _ = cv2.aruco.estimatePoseSingleMarkers(
+                            corners, marker_size, camera_matrix, dist_coeffs)
+                    else:
+                        # Método alternativo usando solvePnP
+                        rvecs, tvecs = [], []
+                        for corner in corners:
+                            # Definir puntos 3D del marcador
+                            object_points = np.array([
+                                [-marker_size/2,  marker_size/2, 0],
+                                [ marker_size/2,  marker_size/2, 0],
+                                [ marker_size/2, -marker_size/2, 0],
+                                [-marker_size/2, -marker_size/2, 0]
+                            ], dtype=np.float32)
+                            
+                            success, rvec, tvec = cv2.solvePnP(
+                                object_points, corner.reshape(-1, 2), 
+                                camera_matrix, dist_coeffs)
+                            
+                            if success:
+                                rvecs.append(rvec)
+                                tvecs.append(tvec)
+                    
+                    # Procesar cada marcador detectado
+                    for i in range(min(len(ids), len(rvecs), len(tvecs))):
+                        try:
+                            # Dibujar ejes del marcador
+                            if hasattr(cv2, 'drawFrameAxes'):
+                                cv2.drawFrameAxes(frame, camera_matrix, dist_coeffs, 
+                                                rvecs[i], tvecs[i], marker_size)
+                            elif hasattr(cv2.aruco, 'drawAxis'):
+                                cv2.aruco.drawAxis(frame, camera_matrix, dist_coeffs, 
+                                                 rvecs[i], tvecs[i], marker_size)
+                            
+                            # Verificar que tenemos valores válidos
+                            if np.any(np.isnan(rvecs[i])) or np.any(np.isnan(tvecs[i])):
+                                continue
+                                
+                            # Crear puntos 3D para la imagen perpendicular
+                            img_height, img_width = ar_image.shape[:2]
+                            
+                            # Escalar la imagen al tamaño del marcador
+                            scale_factor = marker_size / max(img_width, img_height) * 2
+                            scaled_width = img_width * scale_factor
+                            scaled_height = img_height * scale_factor
+                            
+                            # Puntos 3D perpendiculares al marcador (en el plano YZ)
+                            object_points_3d = np.array([
+                                [0, -scaled_width/2, scaled_height/2],    
+                                [0, scaled_width/2, scaled_height/2],     
+                                [0, scaled_width/2, -scaled_height/2],    
+                                [0, -scaled_width/2, -scaled_height/2]    
+                            ], dtype=np.float32)
+                            
+                            # Proyectar puntos 3D a 2D
+                            img_points_2d, _ = cv2.projectPoints(
+                                object_points_3d, rvecs[i], tvecs[i], 
+                                camera_matrix, dist_coeffs)
+                            
+                            # Puntos fuente de la imagen
+                            src_points = np.array([
+                                [0, 0],
+                                [img_width, 0],
+                                [img_width, img_height],
+                                [0, img_height]
+                            ], dtype=np.float32)
+                            
+                            dst_points = img_points_2d.reshape(-1, 2).astype(np.float32)
+                            
+                            # Verificar que los puntos sean válidos
+                            if (np.any(np.isnan(dst_points)) or np.any(np.isinf(dst_points)) or
+                                np.any(dst_points < -1000) or np.any(dst_points > frame.shape[1] + 1000)):
+                                continue
+                            
+                            # Verificar que los puntos forman un cuadrilátero válido
+                            area = cv2.contourArea(dst_points.astype(np.int32))
+                            if area < 100:  # Área mínima
+                                continue
+                            
+                            # Calcular matriz de transformación
+                            matrix = cv2.getPerspectiveTransform(src_points, dst_points)
+                            
+                            # Aplicar transformación
+                            warped_img = cv2.warpPerspective(
+                                ar_image, matrix, (frame.shape[1], frame.shape[0]))
+                            
+                            # Crear máscara
+                            mask = np.zeros((frame.shape[0], frame.shape[1]), dtype=np.uint8)
+                            cv2.fillPoly(mask, [dst_points.astype(np.int32)], 255)
+                            
+                            # Combinar imágenes
+                            mask_inv = cv2.bitwise_not(mask)
+                            frame_bg = cv2.bitwise_and(frame, frame, mask=mask_inv)
+                            warped_img_fg = cv2.bitwise_and(warped_img, warped_img, mask=mask)
+                            frame = cv2.add(frame_bg, warped_img_fg)
+                            
+                        except Exception as e:
+                            print(f"Error procesando marcador {i}: {e}")
+                            continue
+                            
+                except Exception as e:
+                    print(f"Error estimando pose: {e}")
+                    simple_mode = True  # Cambiar a modo simple automáticamente
+                    print("Cambiando automáticamente a modo simple")
         
         # Instrucciones en pantalla
-        cv2.putText(frame, "Presiona 'q' para salir", 
+        cv2.putText(frame, "Presiona 'q' para salir, 's' para modo simple", 
                    (10, frame.shape[0] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
         
         # Mostrar frame
@@ -203,6 +249,9 @@ def main():
         if key == ord('q'):
             print("Saliendo...")
             break
+        elif key == ord('s'):
+            simple_mode = not simple_mode
+            print(f"Modo simple: {'Activado' if simple_mode else 'Desactivado'}")
     
     # Limpiar recursos
     cap.release()

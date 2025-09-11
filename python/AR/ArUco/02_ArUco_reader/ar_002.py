@@ -5,6 +5,7 @@ from pathlib import Path
 # Cargar diccionario ArUco
 aruco_dict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_6X6_250)
 parameters = cv2.aruco.DetectorParameters()
+detector = cv2.aruco.ArucoDetector(aruco_dict, parameters)
 
 # Ruta de la imagen usando pathlib
 script_path = Path(__file__).parent
@@ -36,7 +37,7 @@ while True:
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     
     # Detectar marcadores
-    corners, ids, _ = cv2.aruco.detectMarkers(gray, aruco_dict, parameters=parameters)
+    corners, ids, _ = detector.detectMarkers(gray)  # Usar el detector
     
     if ids is not None:
         for corner in corners:
