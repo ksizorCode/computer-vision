@@ -206,13 +206,55 @@ En tracking, seguimos objetos a través de múltiples frames de video:
 ```
 
 
+#DATASETS POPULARES
+A continuación se listan unas referencias de datasets preexistentes con sus enlaces a:
+
+|Tipo de Enlace     | Descripción                                               |   Qué Ofrece                                                                      |
+|-------------------|-----------------------------------------------------------|-----------------------------------------------------------------------------------|
+|Web oficial        |Sitio web principal del dataset mantenido por los creadores|Documentación completa, información del dataset, papers, descarga oficial          |
+|GitHub             |Repositorio de código en GitHub                            |Scripts de descarga, herramientas, código de ejemplo, APIs para usar el dataset    |
+|Kaggle             |Plataforma de competiciones de ML                          |Datasets listos para usar, kernels/notebooks, competiciones relacionadas           |
+|Papers with Code   |Plataforma académica                                       |Leaderboards, papers que usan el dataset, comparación de métodos                   |
+|TensorFlow         |Catálogo TensorFlow Datasets                               |Fácil carga con tfds.load(), preprocessing automático                              |
+|HuggingFace        |Hub de modelos y datasets                                  |Integración con transformers, carga con datasets.load_dataset()                    |
+|Roboflow           |Plataforma de computer vision                              |Datasets pre-procesados, formatos YOLO/COCO, herramientas de anotación             |
+|Scikit-learn       |Biblioteca de ML de Python                                 |Datasets integrados, carga directa con sklearn                                     |
+|AWS Open           |DataRepositorio público de Amazon                          |Datasets alojados en la nube, acceso gratuito via S3                               |
+
+¿Cuál elegir?
+-Investigación académica: Web oficial + Papers with Code
+-Desarrollo rápido: Kaggle + HuggingFace
+-Proyectos con código: GitHub + TensorFlow
+-Computer vision: Roboflow + Ultralytics
+
 
 # Datasets Generales de Detección de Objetos
-- Open Images Dataset - Dataset masivo de Google con millones de imágenes anotadas
-- Pascal VOC - Dataset clásico con 20 clases de objetos
-- ImageNet - Más de 14 millones de imágenes clasificadas en miles de categorías
-- Objects365 - 365 categorías de objetos cotidianos
-- LVIS - Large Vocabulary Instance Segmentation con más de 1000 categorías
+- **Open Images Dataset** - Dataset masivo de Google con millones de imágenes anotadas
+    - Web oficial: https://storage.googleapis.com/openimages/web/index.html
+    - GitHub: https://github.com/openimages/dataset
+    - TensorFlow: https://www.tensorflow.org/datasets/catalog/open_images_v4
+    - Kaggle: https://www.kaggle.com/datasets/bigquery/open-images
+    - Papers with Code: https://paperswithcode.com/dataset/openimages-v6
+
+- **Pascal VOC** - Dataset clásico con 20 clases de objetos
+    - Web oficial: http://host.robots.ox.ac.uk/pascal/VOC/
+    - VOC 2007 Kaggle: https://www.kaggle.com/datasets/zaraks/pascal-voc-2007
+    - VOC 2012 Kaggle: https://www.kaggle.com/datasets/gopalbhattrai/pascal-voc-2012-dataset
+    - Roboflow: https://public.roboflow.com/object-detection/pascal-voc-2012
+    - HuggingFace: https://huggingface.co/datasets/merve/pascal-voc
+
+- **ImageNet** - Más de 14 millones de imágenes clasificadas en miles de categorías
+    - Web oficial: https://www.image-net.org/
+    - Kaggle: https://www.kaggle.com/c/imagenet-object-localization-challenge
+
+- **Objects365** - 365 categorías de objetos cotidianos
+    - Web oficial: https://www.objects365.org/
+    - GitHub: https://github.com/megvii-research/Objects365
+
+- **LVIS** - Large Vocabulary Instance Segmentation con más de 1000 categorías
+    - Web oficial: https://www.lvisdataset.org/
+    - GitHub: https://github.com/lvis-dataset/lvis-api
+
 
 # Datasets de Segmentación
 - Cityscapes - Segmentación semántica urbana para conducción autónoma
@@ -263,3 +305,167 @@ En tracking, seguimos objetos a través de múltiples frames de video:
 - xView - Detección en imágenes satelitales
 - nuScenes - Dataset 3D para vehículos autónomos
 - Waymo Open Dataset - Conducción autónoma con datos LiDAR
+
+
+---
+#URL, pendientes mezclar de lo de arriba
+
+## Datasets de Segmentación
+
+### Cityscapes
+- **Web oficial**: https://www.cityscapes-dataset.com/
+- **GitHub**: https://github.com/mcordts/cityscapesScripts
+
+### ADE20K
+- **Web oficial**: http://groups.csail.mit.edu/vision/datasets/ADE20K/
+- **GitHub**: https://github.com/CSAILVision/ADE20K
+
+### Mapillary Vistas
+- **Web oficial**: https://www.mapillary.com/dataset/vistas
+- **GitHub**: https://github.com/mapillary/mapillary_vistas
+
+### KITTI
+- **Web oficial**: http://www.cvlibs.net/datasets/kitti/
+- **Kaggle**: https://www.kaggle.com/datasets/twaldo/kitti-object-detection
+
+## Datasets de Reconocimiento Facial
+
+### WIDER FACE
+- **Web oficial**: http://shuoyang1213.me/WIDERFACE/
+- **GitHub**: https://github.com/wondervictor/WiderFace-to-TFRecord
+
+### CelebA
+- **Web oficial**: http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html
+- **Kaggle**: https://www.kaggle.com/datasets/jessicali9530/celeba-dataset
+
+### LFW
+- **Web oficial**: http://vis-www.cs.umass.edu/lfw/
+- **Scikit-learn**: http://scikit-learn.org/stable/datasets/labeled_faces.html
+
+### VGGFace2
+- **Web oficial**: https://github.com/ox-vgg/vgg_face2
+
+## Datasets Médicos
+
+### MIMIC-CXR
+- **Web oficial**: https://physionet.org/content/mimic-cxr/
+- **GitHub**: https://github.com/MIT-LCP/mimic-cxr
+
+### NIH Chest X-rays
+- **Web oficial**: https://nihcc.app.box.com/v/ChestXray-NIHCC
+- **Kaggle**: https://www.kaggle.com/datasets/nih-chest-xrays/data
+
+### ISIC
+- **Web oficial**: https://www.isic-archive.com/
+- **Kaggle**: https://www.kaggle.com/datasets/nodoubttome/skin-cancer9-classesisic
+
+### BraTS
+- **Web oficial**: http://braintumorsegmentation.org/
+- **Kaggle**: https://www.kaggle.com/datasets/awsaf49/brats2020-training-data
+
+## Datasets de Video y Acción
+
+### Kinetics
+- **Web oficial**: https://deepmind.com/research/open-source/kinetics
+- **GitHub**: https://github.com/deepmind/kinetics-i3d
+
+### UCF-101
+- **Web oficial**: https://www.crcv.ucf.edu/data/UCF101.php
+- **Kaggle**: https://www.kaggle.com/datasets/matthewjansen/ucf101-action-recognition
+
+### Something-Something
+- **Web oficial**: https://developer.qualcomm.com/software/ai-datasets/something-something
+- **GitHub**: https://github.com/TwentyBN/something-something-v2-baseline
+
+### YouTube-8M
+- **Web oficial**: https://research.google.com/youtube8m/
+- **Kaggle**: https://www.kaggle.com/c/youtube8m-2019
+
+## Datasets Especializados
+
+### Fashion-MNIST
+- **GitHub**: https://github.com/zalandoresearch/fashion-mnist
+- **Kaggle**: https://www.kaggle.com/datasets/zalando-research/fashionmnist
+
+### Food-101
+- **Web oficial**: https://www.vision.ee.ethz.ch/datasets_extra/food-101/
+- **Kaggle**: https://www.kaggle.com/datasets/dansbecker/food-101
+
+### PlantNet
+- **Web oficial**: https://plantnet.org/en/
+- **Kaggle**: https://www.kaggle.com/c/plantnet-2021-fgvc8
+
+### iNaturalist
+- **Web oficial**: https://www.inaturalist.org/pages/developers
+- **Kaggle**: https://www.kaggle.com/c/inaturalist-2021
+
+### Google Landmarks
+- **Web oficial**: https://storage.googleapis.com/gld-v2/web/index.html
+- **GitHub**: https://github.com/cvdfoundation/google-landmark
+- **Kaggle**: https://www.kaggle.com/c/landmark-recognition-2021
+
+## Datasets Sintéticos y 3D
+
+### SYNTHIA
+- **Web oficial**: https://synthia-dataset.net/
+- **GitHub**: https://github.com/mcordts/cityscapesScripts
+
+### ShapeNet
+- **Web oficial**: https://www.shapenet.org/
+- **GitHub**: https://github.com/laughtervv/DISN
+
+### ModelNet
+- **Web oficial**: https://modelnet.cs.princeton.edu/
+- **GitHub**: https://github.com/lmb-freiburg/orion
+
+### SceneNet RGB-D
+- **Web oficial**: https://robotvault.bitbucket.io/scenenet-rgbd.html
+- **GitHub**: https://github.com/jmccormac/SceneNetRGB-D
+
+## Plataformas y Repositorios
+
+### Kaggle Datasets
+- **Web oficial**: https://www.kaggle.com/datasets
+
+### Papers With Code
+- **Web oficial**: https://paperswithcode.com/datasets
+
+### AWS Open Data
+- **Web oficial**: https://registry.opendata.aws/
+
+### Google Dataset Search
+- **Web oficial**: https://datasetsearch.research.google.com/
+
+### HuggingFace Datasets
+- **Web oficial**: https://huggingface.co/datasets
+
+## Datasets de Detección Específica
+
+### DOTA
+- **Web oficial**: https://captain-whu.github.io/DOTA/index.html
+- **GitHub**: https://github.com/CAPTAIN-WHU/DOTA_devkit
+
+### xView
+- **Web oficial**: http://xviewdataset.org/
+- **GitHub**: https://github.com/DIUx-xView
+
+### nuScenes
+- **Web oficial**: https://www.nuscenes.org/
+- **GitHub**: https://github.com/nutonomy/nuscenes-devkit
+
+### Waymo Open Dataset
+- **Web oficial**: https://waymo.com/open/
+- **GitHub**: https://github.com/waymo-research/waymo-open-dataset
+
+## Herramientas Adicionales
+
+### COCO Dataset
+- **Web oficial**: https://cocodataset.org/
+- **GitHub**: https://github.com/cocodataset/cocoapi
+
+### Roboflow
+- **Web oficial**: https://roboflow.com/
+- **Public datasets**: https://public.roboflow.com/
+
+### Ultralytics Hub
+- **Web oficial**: https://hub.ultralytics.com/
