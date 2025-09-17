@@ -1,4 +1,4 @@
-# DATASETS
+# 📔 DATASETS
 
 Un **Dataset** es un ***Conjunto de Datos*** organizado y estrucutrado que se utiliza para entrenar y probar modelos de machine learning, iteligecia articial y en nuestro caso: computer vision.
 
@@ -305,6 +305,7 @@ A continuación se listan unas referencias de datasets preexistentes con sus enl
 - xView - Detección en imágenes satelitales
 - nuScenes - Dataset 3D para vehículos autónomos
 - Waymo Open Dataset - Conducción autónoma con datos LiDAR
+<<<<<<< HEAD
 
 
 ---
@@ -469,3 +470,4 @@ A continuación se listan unas referencias de datasets preexistentes con sus enl
 
 ### Ultralytics Hub
 - **Web oficial**: https://hub.ultralytics.com/
+
