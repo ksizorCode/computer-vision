@@ -7,8 +7,8 @@ import time
 
 # ----------------------- CONSTANTES -----------------------
 TEMPLATE_FOLDER = "detectar"  # carpeta donde están las imágenes que usarás como plantilla
-ITERACIONES = 5               # número de veces que se ejecutará la detección
-DELAY = 2                     # segundos entre cada iteración
+ITERACIONES = 20               # número de veces que se ejecutará la detección
+DELAY = 1                     # segundos entre cada iteración
 CONFIDENCE_THRESHOLD = 0.8    # confianza mínima para considerar una coincidencia
 SCROLL_PIXELS = -800          # píxeles a desplazar tras cada iteración (negativo = bajar)
 # ----------------------------------------------------------
