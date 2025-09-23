@@ -1,3 +1,11 @@
+# Instalación de Python
+
+- instala python de la web oficial - python.org
+- instala anaconda
+
+
+
+
 # Entornos Virtuales de Python
 
 https://www.youtube.com/watch?v=N9PdRkXOQ4w

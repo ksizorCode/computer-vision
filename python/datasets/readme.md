@@ -255,6 +255,9 @@ A continuación se listan unas referencias de datasets preexistentes con sus enl
     - Web oficial: https://www.lvisdataset.org/
     - GitHub: https://github.com/lvis-dataset/lvis-api
 
+- **DATASET NINJA**
+  - https://datasetninja.com/
+
 
 # Datasets de Segmentación
 - Cityscapes - Segmentación semántica urbana para conducción autónoma
