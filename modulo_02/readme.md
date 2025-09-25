@@ -49,9 +49,9 @@ Obtendremos características visuales a partir de la imagen. Cada característic
 - Descripción local de los puntos de interés.
 
 
-Representación de imagen - creación de vector numérico con todos los puntos de interés.
+Representación de imagen - creación de vector numérico combinando todos los puntos de interés.
 
-Clasificación - 
+Clasificación - Se distribuirán las imágenes en un espacio multimensional que agrupará las imágenes por clases.
 
 Biblioteca - 
 
