@@ -55,5 +55,25 @@ Clasificación - Se distribuirán las imágenes en un espacio multimensional que
 
 Biblioteca - 
 
+## K-NN Clasificador por vecino cercano
+
+## Concepto de clasificador
+Encontrar una fronterea en el espacio de representación de la imagen que permita separar iamgenes de clases diferentes. Al clasificar las imágenes (por puntos de interes) representaremos cada imagen como un vector numérico en un determinado espacio multidimensional. Un clasificador deberá encontrar de la forma más perfecta posible las imágenes del espacio de representación.
+
+Clasificacdores Lineales / No lineales
+
+## Clasificación por vecino Cercano KNN.
+Dada una nueva imagen se calculan las distancias más cercanas al elemento
+
+
+## Validación Cruzada (cross validation)
+
+- Gorund-crud
+- Matriz de confusión
+- Exactitud / Acuracy
+
+
+
+
 
 
