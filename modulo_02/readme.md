@@ -76,4 +76,13 @@ Dada una nueva imagen se calculan las distancias más cercanas al elemento
 
 
 
+# Bag os Words - Support Vector Machines (SVM)
+- Clasificador Binario o Lineal - Existe uan frontera clara de separación entre dos clases
+
+- Clasificador
+
+
+
+
+
 
